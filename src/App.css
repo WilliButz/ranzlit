@@ -1,0 +1,33 @@
+:root {
+  --background-color: #ffffff;
+  --textarea-background-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #0000ee;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --textarea-background-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #03dac6;
+  }
+}
+
+:root {
+  margin: 1em;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+textarea {
+  background-color: var(--textarea-background-color);
+  color: var(--text-color);
+}
+
+a, a:visited {
+  color: var(--link-color);
+}
+
