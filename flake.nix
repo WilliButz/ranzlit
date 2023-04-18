@@ -22,7 +22,7 @@
     buildPackage = napalm.legacyPackages.${system}.buildPackage;
   in
   {
-    packages.default = self.packages.ranzlit;
+    packages.default = self.packages.${system}.ranzlit;
     packages.ranzlit = buildPackage ./. {
       GENERATE_SOURCEMAP = "false";
       NODE_ENV = "production";
