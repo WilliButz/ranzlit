@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import { transliterate } from './Translit';
 import './App.css';
 
@@ -10,10 +10,19 @@ const App = () => {
 
   const [text, setText] = useState('');
   const [urls, setUrls] = useState(initialUrlState);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     let transliteration = transliterate(event.target.value);
+    const cursorPos = inputRef.current?.selectionStart || 0;
+
     setText(transliteration);
+
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.setSelectionRange(cursorPos, cursorPos);
+      }
+    })
 
     if (transliteration !== '') {
       setUrls({
@@ -29,7 +38,7 @@ const App = () => {
   return (
     <div>
       <div>
-        <textarea autoFocus lang="ru" rows={23} cols={55} onChange={handleChange} value={text} />
+        <textarea autoFocus lang="ru" rows={23} cols={55} onChange={handleChange} ref={inputRef} value={text} />
       </div>
       <div>
         <a target="_blank" rel="noopener noreferrer" href={urls.yandexUrl}>{decodeURI(urls.yandexUrl)}</a>
