@@ -41,6 +41,7 @@
         pkgs.nodejs
         pkgs.nodePackages.npm
         pkgs.nodePackages.create-react-app
+        pkgs.nodePackages.typescript-language-server
       ];
     };
   });
