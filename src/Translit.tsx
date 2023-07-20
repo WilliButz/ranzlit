@@ -1,42 +1,42 @@
 const transliterationMap: { [key: string]: string } = {
-  a:   "а",
-  b:   "б",
-  v:   "в",
-  w:   "в",
-  g:   "г",
-  d:   "д",
-  e:   "е",
-  ыo:  "ё", // yo
-  йo:  "ё", // jo
-  зh:  "ж", // zh
-  z:   "з",
-  i:   "и",
-  j:   "й",
-  k:   "к",
-  l:   "л",
-  m:   "м",
-  n:   "н",
-  o:   "о",
-  p:   "п",
-  r:   "р",
-  s:   "с",
-  t:   "т",
-  u:   "у",
-  f:   "ф",
-  h:   "х",
-  c:   "ц",
-  тz:  "ц", // tz
-  цh:  "ч", // ch
-  сh:  "ш", // sh
-  шh:  "щ", // ssh
+  a: "а",
+  b: "б",
+  v: "в",
+  w: "в",
+  g: "г",
+  d: "д",
+  e: "е",
+  ыo: "ё", // yo
+  йo: "ё", // jo
+  зh: "ж", // zh
+  z: "з",
+  i: "и",
+  j: "й",
+  k: "к",
+  l: "л",
+  m: "м",
+  n: "н",
+  o: "о",
+  p: "п",
+  r: "р",
+  s: "с",
+  t: "т",
+  u: "у",
+  f: "ф",
+  h: "х",
+  c: "ц",
+  тz: "ц", // tz
+  цh: "ч", // ch
+  сh: "ш", // sh
+  шh: "щ", // ssh
   '"': "ъ",
-  y:   "ы",
+  y: "ы",
   "'": "ь",
-  ä:   "э",
-  ыu:  "ю", // yu
-  йu:  "ю", // ju
-  ыa:  "я", // ya
-  йa:  "я", // ja
+  ä: "э",
+  ыu: "ю", // yu
+  йu: "ю", // ju
+  ыa: "я", // ya
+  йa: "я", // ja
 };
 
 const isUpperCase = (s: string): boolean => {
@@ -96,11 +96,11 @@ export function transliterate(input: string, cursorPos?: number): string {
       replacement = transliterationMap[combination];
       // increment index because we replace two characters
       i++;
-    // then check if current char can be replaced
+      // then check if current char can be replaced
     } else if (currentChar in transliterationMap) {
       replacement = transliterationMap[currentChar];
 
-    // or leave char unchanged
+      // or leave char unchanged
     } else {
       replacement = input[i];
     }
