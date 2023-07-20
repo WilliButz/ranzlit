@@ -29,6 +29,7 @@
       npmCommands = [
         "npm install"
         "npm run build"
+        "CI=true npm test"
       ];
       installPhase = ''
         mv build $out
