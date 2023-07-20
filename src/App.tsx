@@ -13,9 +13,9 @@ const App = () => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    let transliteration = transliterate(event.target.value);
     const cursorPos = inputRef.current?.selectionStart || 0;
 
+    let transliteration = transliterate(event.target.value, cursorPos);
     setText(transliteration);
 
     setTimeout(() => {
