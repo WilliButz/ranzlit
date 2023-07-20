@@ -39,8 +39,9 @@
       name = "ranzlit-env";
       buildInputs = [
         pkgs.nodejs
-        pkgs.nodePackages.npm
         pkgs.nodePackages.create-react-app
+        pkgs.nodePackages.npm
+        pkgs.nodePackages.prettier
         pkgs.nodePackages.typescript-language-server
       ];
     };
