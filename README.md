@@ -15,6 +15,8 @@ Dark mode via `prefers-color-scheme`:
 
 ![Dark mode demo](./dark_mode.gif)
 
+Transliteration is performed on the textarea following the `transliterationMap` specified in [Translit.tsx](./src/Translit.tsx).
+
 ## Building
 
 ```
