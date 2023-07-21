@@ -15,10 +15,19 @@ const App = () => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const cursorPos = inputRef.current?.selectionStart || 0;
+    let cursorPos = inputRef.current?.selectionStart || 0;
+    const inputLength = event.target.value.length;
 
     let transliteration = transliterate(event.target.value, cursorPos);
     setText(transliteration);
+
+    // correct cursor position if multiple input characters were transliterated
+    // to a single character, only relevant if text is inserted instead of appended
+    if (transliteration.length < inputLength) {
+      let newPos = cursorPos - (inputLength - transliteration.length);
+      // should never be false but check anyway
+      cursorPos = newPos >= 1 ? newPos : 1;
+    }
 
     setTimeout(() => {
       if (inputRef.current) {
