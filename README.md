@@ -2,7 +2,12 @@
 
 Simple React app for transliteration from Latin to Russian Cyrillic.
 
-This is how it looks:
+## Why?
+
+There are multiple services readily available that transliterate from Latin to various non-Latin alphabets (e.g., https://translit.cc or https://translit.ru ).
+However, all I really want is a simple input area to type in, without ads or config options for other Cyrillic alphabets.
+
+This is how ranzlit looks:
 
 ![Light mode demo](./light_mode.gif)
 
